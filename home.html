@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Current Wheather Website</title>
+</head>
+<body>
+    <div class="head">
+        <h1> WEATHER DATA</h1>
+    </div>
+
+    <div class="container-data">
+    <form action="/" method="post">
+        <input type="text" class="text-box" name="city" placeholder="Enter a City Name">
+        <button type="submit" class="btn">CHECK</button>
+    </form>
+    </div>
+    <br>
+    {% if nameOfCity %}
+    <div class="show-result">
+        <div class="output"><h3>{{nameOfCity.upper()}}</h3></div>
+        <br>
+        <div class="output"><h3 class="data">Temperature : </h3>{{tempInCelcius}}°C</div>
+        <div class="output"><h3 class="data">Humidity : </h3>{{humidity}}%</div>
+        <div class="output"><h3 class="data">Wind Speed : </h3>{{windSpeed}}Km/h</div>
+        <div class="output"><h3 class="data">Description : </h3>{{Description}}</div>
+    </div>
+    {% else %}
+    <div class="show-result">
+    <h3 style="color:red; padding:30px;font-size:25px; font-weight:bold; font-family:'Courier New', Courier, monospace;">Enter A City Name To Check Current Wheather Report</h3></div>
+    {% endif %}
+</body>
+</html>
